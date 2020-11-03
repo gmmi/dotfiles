@@ -11,3 +11,4 @@ This repository contains (most of) the dotfiles that I use on my system(s).
 It does not contain:
 
 * My configuration for `weechat` (since that one contains passwords, even though they aren't plaintext)
+* My configuration for `meli` (since that one contains passwords, .. in plaintext, ugh!)
