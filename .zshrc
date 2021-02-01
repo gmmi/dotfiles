@@ -23,5 +23,4 @@ path+=('/home/gmmi/bin')
 export PATH
 
 # SSH-agent stuff
-source find_ssh_agent.sh
-set_ssh_agent_socket
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
