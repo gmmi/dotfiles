@@ -1,13 +1,31 @@
 #!/usr/bin/bash
 
-if ! [ -x "/usr/bin/curl"]; then
-  sudo apt install curl
+if ! [ -x "/usr/bin/curl" ]; then
+	if [ -f "/etc/manjaro-release" ]; then
+		sudo pacman -S curl
+	else
+  	sudo apt install curl
+	fi
 fi
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ -e "~/.vim/autoload/plug.vim" ]; then
+	echo "[!] ~/.vim/autoload/plug.vim already exists" ]
+else
+	curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
-ln -s $(pwd)/.vimrc ~/.vimrc
-ln -s $(pwd)/.zshrc ~/.zshrc
-if [ -d "~/.config/i3"]; then
+if [ -e "~/.vimrc" ]; then
+	echo "[!] ~/.vimrc already exists"
+else
+	ln -s $(pwd)/.vimrc ~/.vimrc
+fi
+
+if [ -e "~/.zshrc" ]; then
+	echo "[!] ~/.zshrc already exists"
+else
+	ln -s $(pwd)/.zshrc ~/.zshrc
+fi
+
+if [ -d "~/.config/i3" ]; then
   ln -s $(pwd)/.config/i3/config ~/.config/i3/config
 fi
