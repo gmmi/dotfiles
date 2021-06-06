@@ -1,11 +1,7 @@
 #!/usr/bin/bash
 
 if ! [ -x "/usr/bin/curl" ]; then
-	if [ -f "/etc/manjaro-release" ]; then
-		sudo pacman -S curl
-	else
   	sudo apt install curl
-	fi
 fi
 
 if [ -e "~/.vim/autoload/plug.vim" ]; then
@@ -18,6 +14,10 @@ if [ -e "~/.vimrc" ]; then
 	echo "[!] ~/.vimrc already exists"
 else
 	ln -s $(pwd)/.vimrc ~/.vimrc
+fi
+
+if ! [ -x "/usr/bin/zsh" ]; then
+	sudo apt install zsh
 fi
 
 if [ -e "~/.zshrc" ]; then
