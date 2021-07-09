@@ -16,3 +16,6 @@ RPROMPT="%~ | %h"
 
 # aliases
 alias mirror='/usr/local/bin/wget --mirror --page-requisites --no-parent --convert-links -P ./ "$@"'
+
+# for Docker
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
