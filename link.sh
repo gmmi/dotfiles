@@ -7,6 +7,13 @@ else
 	sudo apt install git &> /dev/null
 fi
 
+if [[ -x /usr/bin/zsh ]]; then
+	echo "[+] zsh installed"
+else
+	echo "[-] Installing zsh .."
+	sudo apt install zsh &> /dev/null
+fi
+
 if [[ -x /usr/bin/curl ]]; then
 	echo "[+] curl installed"
 else
