@@ -12,6 +12,7 @@ autoload -Uz compinit
 compinit
 
 PROMPT='[%m] %. '
+RPROMPT="%~ | %h"
 
 # aliases
 alias mirror='/usr/local/bin/wget --mirror --page-requisites --no-parent --convert-links -P ./ "$@"'
