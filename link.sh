@@ -4,22 +4,25 @@ if [[ -x /usr/bin/git ]]; then
 	echo "[+] git installed"
 else
 	echo "[-] Installing git .."
-	sudo apt install git &> /dev/null
+	sudo apt install git -y &> /dev/null
 fi
 
 if [[ -x /usr/bin/zsh ]]; then
 	echo "[+] zsh installed"
 else
 	echo "[-] Installing zsh .."
-	sudo apt install zsh &> /dev/null
+	sudo apt install zsh -y &> /dev/null
 fi
 
 if [[ -x /usr/bin/curl ]]; then
 	echo "[+] curl installed"
 else
 	echo "[-] Installing curl .."
-	sudo apt install curl &> /dev/null
+	sudo apt install -y curl &> /dev/null
 fi
+
+echo "[*] Installing prequisites for YCM .."
+sudo apt install -y build-essential cmake vim-nox python3-dev mono-complete golang nodejs default-jdk npm &> /dev/null
 
 if [[ -e ~/.vim/autoload/plug.vim ]]; then
 	echo "[!] ~/.vim/autoload/plug.vim already exists" 
